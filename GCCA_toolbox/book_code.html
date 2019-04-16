@@ -1,0 +1,282 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=us-ascii">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List href="./book_code_files/filelist.xml">
+<title>Bayesian nonlinear classification and regression</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>ccholmes</o:Author>
+  <o:Template>normal</o:Template>
+  <o:LastAuthor>ccholmes</o:LastAuthor>
+  <o:Revision>77</o:Revision>
+  <o:TotalTime>1850</o:TotalTime>
+  <o:Created>2002-10-04T15:10:00Z</o:Created>
+  <o:LastSaved>2002-10-24T10:01:00Z</o:LastSaved>
+  <o:Pages>2</o:Pages>
+  <o:Words>674</o:Words>
+  <o:Characters>3844</o:Characters>
+  <o:Company>Imperial College</o:Company>
+  <o:Lines>32</o:Lines>
+  <o:Paragraphs>7</o:Paragraphs>
+  <o:CharactersWithSpaces>4720</o:CharactersWithSpaces>
+  <o:Version>9.3821</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]-->
+<style>
+<!--
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+p
+	{margin-right:0cm;
+	mso-margin-top-alt:auto;
+	mso-margin-bottom-alt:auto;
+	margin-left:0cm;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+@page Section1
+	{size:595.3pt 841.9pt;
+	margin:72.0pt 90.0pt 72.0pt 90.0pt;
+	mso-header-margin:35.4pt;
+	mso-footer-margin:35.4pt;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+@list l0
+	{mso-list-id:104007165;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-364112466 630378086 -1118669046 914279404 -1354717850 -468654700 -382403494 -1888712196 -163920720 1203681932;}
+@list l0:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l1
+	{mso-list-id:227350944;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1751477328 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l1:level2
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:72.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
+-->
+</style>
+</head>
+
+<body lang=EN-GB link=blue vlink=blue style='tab-interval:36.0pt'>
+
+<div class=Section1>
+
+<h1><span style='font-size:20.0pt;mso-bidi-font-size:24.0pt'>Matlab code from
+the book:<o:p></o:p></span></h1>
+
+<h1><i><span style='font-size:20.0pt;mso-bidi-font-size:24.0pt'>Bayesian
+methods for nonlinear classification and regression</span></i><span
+style='font-size:20.0pt;mso-bidi-font-size:24.0pt'>. (2002). </span><span
+style='font-size:18.0pt;mso-bidi-font-size:24.0pt'>Denison, Holmes, Mallick and
+Smith: Wiley</span><span style='font-size:20.0pt;mso-bidi-font-size:24.0pt'>.<o:p></o:p></span></h1>
+
+<h1><span style='font-size:16.0pt;mso-bidi-font-size:24.0pt'>Page maintained
+by: <o:p></o:p></span></h1>
+
+<h1><span style='font-size:16.0pt;mso-bidi-font-size:24.0pt'><a
+href="http://stats.ma.ic.ac.uk/~ccholmes">Dr Chris Holmes</a> <o:p></o:p></span></h1>
+
+<ul type=disc>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo3;tab-stops:list 36.0pt'>Telephone No. : <b>+44
+     (0)207 594 8568</b> </li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo3;tab-stops:list 36.0pt'>E-Mail Address : <b>c.holmes@ic.ac.uk</b>
+     </li>
+</ul>
+
+<p>This page contains Matlab code to implement the methods used in my <a
+href="http://stats.ma.ic.ac.uk/~dgtd/book.html">book with Denison, Mallick and
+Smith</a>. You should find the code fully documented and stand-alone. I hope
+that those with little or no Matlab experience should still be able to follow
+the code. </p>
+
+<p>Instructions on how to run the programs are found at the top of each program
+file. In Matlab, comments are preceeded with a % symbol. </p>
+
+<p>All of the methods are fully automatic using default priors and default MCMC
+algorithms. Hence the code can be run with no input from the user (other than
+the data). Of course, if possible we recommend incorporating subjective prior
+information and tuning the MCMC algorithm, see the header in each program file
+for more details.</p>
+
+<p>Please feel free to send me any suggestions for improvements to the code or
+on the readability of my comments in the programs. </p>
+
+<p>I hope to have all of the remaining programs up soon: currently missing &#8211;
+decision trees; generalised regression splines; multivariate Gaussian response
+models.</p>
+
+<h2><span style='font-size:16.0pt;mso-bidi-font-size:18.0pt'>Programs</span>:</h2>
+
+<h2><i><span style='font-size:12.0pt;mso-bidi-font-size:18.0pt;font-weight:
+normal'>If you wish to be informed of updates and/or bug fixes then please send
+me an email and I will put you on a mailing list</span></i><span
+style='font-weight:normal'>.<o:p></o:p></span></h2>
+
+<h2><span style='font-size:14.0pt;mso-bidi-font-size:18.0pt;font-weight:normal'>For
+Gaussian Response Data:<o:p></o:p></span></h2>
+
+<p style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:l1 level1 lfo5;
+tab-stops:list 36.0pt'><![if !supportLists]>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]><b>Bayesian MARS model for Gaussian response data</b>:
+Chapters 3 and 4: <a
+href="http://stats.ma.ic.ac.uk/~ccholmes/Book_code/bayes_mars_gauss.m">Here is
+the code</a>. </p>
+
+<p style='margin-left:72.0pt;text-indent:-18.0pt;mso-list:l1 level2 lfo5;
+tab-stops:list 72.0pt'><![if !supportLists]>a.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]>This program is stand-alone and can be used to produce a
+prediction on a test set (see the header to the program).</p>
+
+<p style='margin-left:72.0pt;text-indent:-18.0pt;mso-list:l1 level2 lfo5;
+tab-stops:list 72.0pt'><![if !supportLists]>b.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]>You can also use it to store every model from the MCMC chain
+and then use <a
+href="http://stats.ma.ic.ac.uk/~ccholmes/Book_code/make_mars_forecast.m">this
+program</a> to make forecasts. </p>
+
+<p style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:l1 level1 lfo5;
+tab-stops:list 36.0pt'><![if !supportLists]>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]><b>Bayesian Radial Basis Function (RBF) model for Gaussian
+response data</b>: Chapters 3 and 4: <a
+href="http://stats.ma.ic.ac.uk/~ccholmes/Book_code/bayes_rbf_gauss.m">Here is
+the code</a>. </p>
+
+<p style='margin-left:72.0pt;text-indent:-18.0pt;mso-list:l1 level2 lfo5;
+tab-stops:list 72.0pt'><![if !supportLists]>a.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]>This program is stand-alone and can be used to produce a
+prediction on a test set (see the header to the program).</p>
+
+<p style='margin-left:72.0pt;text-indent:-18.0pt;mso-list:l1 level2 lfo5;
+tab-stops:list 72.0pt'><![if !supportLists]>b.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]>You can also use it to store every model from the MCMC chain
+and then use <a
+href="http://stats.ma.ic.ac.uk/~ccholmes/Book_code/make_rbf_forecast.m">this
+program</a> to make forecasts. </p>
+
+<p style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:l1 level1 lfo5;
+tab-stops:list 36.0pt'><![if !supportLists]>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]><b>Bayesian Multivariate Linear Spline (MLS) model for
+Gaussian response data</b>: Chapters 3 and 4: <a
+href="http://stats.ma.ic.ac.uk/~ccholmes/Book_code/bayes_mls_gauss.m">Here is
+the code</a>. </p>
+
+<p style='margin-left:72.0pt;text-indent:-18.0pt;mso-list:l1 level2 lfo5;
+tab-stops:list 72.0pt'><![if !supportLists]>a.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]>This program is stand-alone and can be used to produce a
+prediction on a test set (see the header to the program). The model is in
+effect a Bayesian local linear method and produces local linear coefficients at
+the test points plus credible intervals on these estimates.</p>
+
+<p style='margin-left:72.0pt;text-indent:-18.0pt;mso-list:l1 level2 lfo5;
+tab-stops:list 72.0pt'><![if !supportLists]>b.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]>You can also use it to store every model from the MCMC chain
+and then use <a
+href="http://stats.ma.ic.ac.uk/~ccholmes/Book_code/make_mls_forecast.m">this
+program</a> to make forecasts. </p>
+
+<p style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:l1 level1 lfo5;
+tab-stops:list 36.0pt'><![if !supportLists]>4.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]><b>Bayesian Partition Model (BPM) for Gaussian response data</b>:
+Chapter 7: <a
+href="http://stats.ma.ic.ac.uk/~ccholmes/Book_code/bayes_partition_gauss.m">Here
+is the code</a>.</p>
+
+<p style='margin-left:72.0pt;text-indent:-18.0pt;mso-list:l1 level2 lfo5;
+tab-stops:list 72.0pt'><![if !supportLists]><span style='font-size:14.0pt;
+mso-bidi-font-size:12.0pt'>a.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]>The BPM is a probabilitic version of Learning Vector
+Quantization. It quantizes the covariate (predictor) space using a Voronoi
+tiling and then fits a simple (conjugate) Normal-Normal probability model to
+the data within each region.<span style='font-size:14.0pt;mso-bidi-font-size:
+12.0pt'><o:p></o:p></span></p>
+
+<p style='margin-left:72.0pt;text-indent:-18.0pt;mso-list:l1 level2 lfo5;
+tab-stops:list 72.0pt'><![if !supportLists]><span style='font-size:14.0pt;
+mso-bidi-font-size:12.0pt'>b.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]>The program above predicts on a test set, but you can
+also run it to dump out the model samples and then use <a
+href="http://stats.ma.ic.ac.uk/~ccholmes/Book_code/make_partition_forecast.m">this
+program</a> to make forecasts.<span style='font-size:14.0pt;mso-bidi-font-size:
+12.0pt'><o:p></o:p></span></p>
+
+<p><span style='font-size:14.0pt;mso-bidi-font-size:12.0pt'>For Classification
+Problems (Multinomial response data):<o:p></o:p></span></p>
+
+<p style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:l1 level1 lfo5;
+tab-stops:list 36.0pt'><![if !supportLists]>5.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]><b>Bayesian Partition Model (BPM) for q-class classification</b>
+(multinomial response data): Chapter 7: <a
+href="http://stats.ma.ic.ac.uk/~ccholmes/Book_code/bayes_partition_class.m">Here
+is the code</a>.</p>
+
+<p style='margin-left:72.0pt;text-indent:-18.0pt;mso-list:l1 level2 lfo5;
+tab-stops:list 72.0pt'><![if !supportLists]>a.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]>The BPM is a probabilitic version of Learning Vector
+Quantization. It quantizes the covariate (predictor) space using a Voronoi
+tiling and then fits a simple (conjugate) Multinomial-Dirichlet probability
+model to the data within each region.</p>
+
+<p style='margin-left:72.0pt;text-indent:-18.0pt;mso-list:l1 level2 lfo5;
+tab-stops:list 72.0pt'><![if !supportLists]>b.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]>The program above predicts on a test set, but you can also run
+it to dump out the model samples and then use <a
+href="http://stats.ma.ic.ac.uk/~ccholmes/Book_code/make_partition_class_forecast.m">this
+program</a> to make predictions.</p>
+
+<p style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:l1 level1 lfo5;
+tab-stops:list 36.0pt'><![if !supportLists]>6.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]><b>Bayesian k-Nearest-Neighbour</b>: Chapter 8: <a
+href="http://stats.ma.ic.ac.uk/~ccholmes/Book_code/bayes_k_nn.m">Here is the
+code</a>.</p>
+
+<p style='margin-left:72.0pt;text-indent:-18.0pt;mso-list:l1 level2 lfo5;
+tab-stops:list 72.0pt'><![if !supportLists]>a.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]>This program also includes a weighted nearest-neighbour
+version.</p>
+
+<p><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+</div>
+
+</body>
+
+</html>
